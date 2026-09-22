@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="炫舞印象句子对齐工具提供专业的文本排版与句子对齐服务，帮助用户快速处理舞蹈表演文案、歌词对照及舞台剧剧本，实现视觉与听觉的完美同步。">
+    <meta name="keywords" content="炫舞印象句子对齐,文本对齐工具,舞蹈文案排版,舞台剧剧本对齐,歌词对照">
+    <title>炫舞印象句子对齐-专业文本排版与对齐服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eef2ff 0%, #fce4ec 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Features Grid */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Tool Interface Simulation */
+        .tool-interface {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .tool-header {
+            background: #f1f2f6;
+            padding: 15px 25px;
+            border-bottom: 1px solid #e1e1e1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tool-tabs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tab {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tool-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .tool-body {
+                flex-direction: row;
+            }
+        }
+
+        .editor-pane, .preview-pane {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .editor-pane {
+            border-right: 1px solid #eee;
+        }
+
+        .preview-pane {
+            background: #fafafa;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .preview-area {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            min-height: 300px;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .preview-line {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+        }
+
+        .preview-line::before {
+            content: attr(data-index);
+            position: absolute;
+            left: -25px;
+            color: #ccc;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        .action-bar {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5649c0;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Usage Guide */
+        .guide-section {
+            background: white;
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-list {
+            list-style: none;
+            counter-reset: guide-counter;
+        }
+
+        .guide-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        .guide-item::before {
+            counter-increment: guide-counter;
+            content: counter(guide-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .guide-item h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .guide-item p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 20px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #636e72;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            .tool-body {
+                flex-direction: column;
+            }
+            .editor-pane {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>✦</span> 炫舞印象
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>炫舞印象句子对齐工具</h1>
+            <p>专为舞蹈表演、舞台剧及视频剪辑设计的文本对齐辅助平台，让每一句台词、每一个音符与画面完美同步。</p>
+            <a href="#tool" class="cta-button">立即开始对齐</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Features Section -->
+        <section id="features">
+            <div class="section-title">
+                <h2>为什么选择炫舞印象句子对齐？</h2>
+                <p>针对舞蹈、舞台剧及影视制作中的字幕对齐痛点，提供精准的排版与同步解决方案。</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="icon-box">⚡</div>
+                    <h3>极速处理</h3>
+                    <p>采用本地化算法，无需上传云端，秒级完成多行文本的间距调整与对齐，保护隐私安全。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>视觉适配</h3>
+                    <p>支持自动计算每行字数占比，适配不同舞台背景与字体大小，确保文字在画面中居中美观。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="icon-box">🔄</div>
+                    <h3>双向同步</h3>
+                    <p>既可从左至右对齐，也可从右至左对齐，支持一键镜像翻转，满足不同拍摄角度需求。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Interactive Tool Section -->
+        <section id="tool" class="tool-interface">
+            <div class="tool-header">
+                <div class="tool-tabs">
+                    <div class="tab active">舞蹈文案对齐</div>
+                    <div class="tab">歌词对照模式</div>
+                    <div class="tab">剧本时间轴</div>
+                </div>
+                <div style="font-size: 0.9rem; color: #888;">在线演示版</div>
+            </div>
+            <div class="tool-body">
+                <div class="editor-pane">
+                    <h3>输入待对齐文本</h3>
+                    <p style="color: #888; font-size: 0.9rem; margin-bottom: 10px;">请粘贴您的舞蹈表演台词、歌词或剧本内容。</p>
+                    <textarea id="inputText" placeholder="在此处输入文本...
+例如：
+第一句台词内容
+第二句台词内容
+第三句台词内容
+..."></textarea>
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="alignText()">执行对齐</button>
+                        <button class="btn btn-outline" onclick="clearText()">清空内容</button>
+                    </div>
+                </div>
+                <div class="preview-pane">
+                    <h3>实时预览效果</h3>
+                    <div id="previewArea" class="preview-area">
+                        <p style="color: #aaa; text-align: center; margin-top: 50px;">对齐结果将显示在这里...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide -->
+        <section id="guide">
+            <div class="section-title">
+                <h2>操作指南</h2>
+                <p>三步轻松完成专业的句子对齐工作。</p>
+            </div>
+            <div class="guide-section">
+                <ul class="guide-list">
+                    <li class="guide-item">
+                        <h3>步骤一：文本导入</h3>
+                        <p>将您的舞蹈剧本、表演台词或歌词直接复制粘贴到左侧编辑框中，支持一次性粘贴整段文本。</p>
+                    </li>
+                    <li class="guide-item">
+                        <h3>步骤二：选择模式</h3>
+                        <p>在工具栏切换“舞蹈文案”、“歌词对照”或“剧本时间轴”模式，系统将自动应用相应的对齐算法。</p>
+                    </li>
+                    <li class="guide-item">
+                        <h3>步骤三：微调导出</h3>
+                        <p>点击“执行对齐”查看效果，如需调整间距或对齐方式，可手动微调后复制结果用于后续编辑。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>炫舞印象</h4>
+                <p style="color: #b2bec3; font-size: 0.9rem;">专注于为舞者、演员及内容创作者提供专业的文本排版与对齐服务工具。</p>
+            </div>
+            <div class="footer-col">
+                <h4>核心功能</h4>
+                <ul>
+                    <li><a href="#">舞蹈文案对齐</a></li>
+                    <li><a href="#">舞台剧字幕同步</a></li>
+                    <li><a href="#">歌词排版工具</a></li>
+                    <li><a href="#">视频字幕生成</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助支持</h4>
+                <ul>
+                    <li><a href="#">使用教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 炫舞印象句子对齐工具. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function alignText() {
+            const input = document.getElementById('inputText').value;
+            const output = document.getElementById('previewArea');
+            
+            if (!input.trim()) {
+                output.innerHTML = '<p style="color: #ff7675; text-align: center; margin-top: 50px;">请输入文本后再进行对齐...</p>';
+                return;
+            }
+
+            const lines = input.split('\n').filter(line => line.trim() !== '');
+            let html = '';
+
+            lines.forEach((line, index) => {
+                html += `<div class="preview-line" data-index="${index + 1}">${escapeHtml(line)}</div>`;
+            });
+
+            output.innerHTML = html;
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('previewArea').innerHTML = '<p style="color: #aaa; text-align: center; margin-top: 50px;">对齐结果将显示在这里...</p>';
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        // Tab switching logic (Visual only for this demo)
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
