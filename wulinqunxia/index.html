@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="武林群侠传攻略大全，提供新手入门指南、属性加点推荐、特殊剧情触发条件、隐藏要素解析及通关秘籍。">
+    <meta name="keywords" content="武林群侠传攻略,武林群侠传,单机游戏攻略,武侠RPG">
+    <title>武林群侠传攻略-新手入门与隐藏要素深度解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b4513;
+            --secondary-color: #d2691e;
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --accent-green: #2e7d32;
+            --accent-red: #c62828;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部 */
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: #fff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            font-weight: bold;
+            border-bottom: 2px solid #ffd700;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffd700;
+            color: var(--primary-color);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #ffea00;
+            transform: translateY(-2px);
+        }
+
+        /* 主要内容网格 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 左侧内容区 */
+        .content-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .guide-steps {
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            counter-increment: step-counter;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            color: #555;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        .tag.rare {
+            background: #ffebee;
+            color: var(--accent-red);
+        }
+
+        /* 属性卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* 右侧侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .sidebar-list .count {
+            background: #eee;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: none; /* JS控制显示 */
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '▼';
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2c2c2c;
+            color: #ccc;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* 视觉装饰元素 */
+        .decorative-scroll {
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 20, 50 50 T 100 50" fill="none" stroke="%23d2691e" stroke-width="2" opacity="0.3"/></svg>');
+            height: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>侠</span> 武林群侠传攻略
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">新手入门</a></li>
+                    <li><a href="#">隐藏要素</a></li>
+                    <li><a href="#">图鉴大全</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="decorative-scroll"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>江湖路远，侠义在心</h1>
+            <p>为您提供《武林群侠传》全流程攻略、属性加点详解、洛阳八卦坊商战指南及特殊结局触发条件。</p>
+            <button class="btn" onclick="document.getElementById('guide-start').scrollIntoView({behavior: 'smooth'})">开始阅读攻略</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-grid">
+            <!-- 左侧主要内容 -->
+            <div class="content-area">
+                
+                <!-- 新手指南 -->
+                <article id="guide-start" class="content-section">
+                    <div class="section-title">
+                        <h2>新手入门核心指南</h2>
+                    </div>
+                    <div class="guide-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>初始属性分配与性格选择</h3>
+                                <p>游戏开始时，请务必仔细阅读性格描述。选择“豪爽”性格可获得更多初始悟性，选择“文雅”则更容易触发特殊剧情。属性方面，建议将 <strong>悟性</strong> 点至 30 以上，以便解锁高级武功书；<strong>运气</strong> 保持在 20 左右，有助于提升洛阳八卦坊的商战收益。</p>
+                                <div class="tag">必看</div>
+                                <div class="tag">属性加点</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>洛阳城第一阶段探索</h3>
+                                <p>在前往洛阳之前，务必在谷仓喂猪以提升体力上限。在洛阳城内，先去<b>李徽</b>家找<b>沈湘云</b>，这是触发后续剧情的关键。不要忽略与<b>林仙儿</b>的初次对话，这将影响后期在洛阳的声望。此外，记得去<b>八卦坊</b>购买基础药品，避免前期战斗减员。</p>
+                                <div class="tag rare">剧情关键</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>招募队友与羁绊系统</h3>
+                                <p>游戏共有四位核心队友。招募顺序会影响好感度获取。建议优先招募 <b>傅剑寒</b> 和 <b>谷月轩</b>，他们能提供强大的战斗辅助。在招募过程中，通过“对话”和“送礼”提升好感度，当好感度达到 60 以上时，部分队友会解锁专属技能。</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 技能与属性详解 -->
+                <article class="content-section">
+                    <div class="section-title">
+                        <h2>核心属性与武功解析</h2>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: #666;">《武林群侠传》的战斗系统基于回合制，属性高低直接决定胜负。</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>悟性</h4>
+                            <div class="value">决定武功上限</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>魅力</h4>
+                            <div class="value">影响NPC好感</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>运气</h4>
+                            <div class="value">决定暴击率</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>体质</h4>
+                            <div class="value">影响血量上限</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">推荐武功搭配：</h3>
+                        <ul style="list-style: disc; padding-left: 20px; color: #555;">
+                            <li><strong>主攻：</strong> 龙爪手（高伤害）或 软猬甲（高闪避）</li>
+                            <li><strong>辅助：</strong> 洗髓经（提升内力上限）</li>
+                            <li><strong>特殊：</strong> 拳皇剑法（可学习条件苛刻）</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 隐藏要素 -->
+                <article class="content-section">
+                    <div class="section-title">
+                        <h2>隐藏要素与彩蛋</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <h4 style="color: var(--secondary-color);">不死鸟之羽</h4>
+                            <p style="font-size: 0.9rem;">在战斗中遇到概率极低的变异鸟类，击败后有机会掉落，用于复活。</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">绝版宠物</h4>
+                            <p style="font-size: 0.9rem;">在特定时间（如深夜）前往特定地点，可捕捉隐藏的灵兽。</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">结局分歧</h4>
+                            <p style="font-size: 0.9rem;">不同的道德选择将导向“侠义”或“邪派”结局，影响最终归属。</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">商战秘籍</h4>
+                            <p style="font-size: 0.9rem;">八卦坊商战不仅看运气，更需掌握“囤积-抛售”的时间差技巧。</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside>
+                <div class="sidebar-card">
+                    <h3>热门攻略分类</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">新手开局加点 <span class="count">2.3k</span></a></li>
+                        <li><a href="#">林仙儿攻略 <span class="count">1.8k</span></a></li>
+                        <li><a href="#">商战赚钱技巧 <span class="count">1.5k</span></a></li>
+                        <li><a href="#">八卦坊商战 <span class="count">980</span></a></li>
+                        <li><a href="#">侠医谷月轩 <span class="count">850</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>常见问题 (FAQ)</h3>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">游戏无法存档怎么办？</div>
+                        <div class="faq-answer">请检查游戏目录是否有写入权限，或尝试修改存档路径到桌面。</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">如何触发傅剑寒加入队伍？</div>
+                        <div class="faq-answer">需在杭州剧情中与其发生至少三次正面冲突并获胜，且声望达到要求。</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">为什么我的悟性点不上去？</div>
+                        <div class="faq-answer">除了初始加点，还需通过阅读书籍和完成特定事件来提升。</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card" style="background-color: #fff3e0; border: 1px solid #ffe0b2;">
+                    <h3 style="color: #e65100;">新手提示</h3>
+                    <p style="font-size: 0.9rem;">不要急于前往终南山，先在洛阳城将各项基础属性练到 20 以上，否则后期战斗会非常艰难。</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>武林群侠传攻略网</h4>
+                    <p style="font-size: 0.9rem; color: #999;">专注于经典武侠单机游戏的深度攻略与资料整理，助您重温江湖梦。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">版本补丁</a></li>
+                        <li><a href="#">修改器工具</a></li>
+                        <li><a href="#">玩家论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">武林外传官网</a></li>
+                        <li><a href="#">金庸群侠传社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 武林群侠传攻略网. All Rights Reserved. 本站为玩家自发整理攻略站点，非官方渠道。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 切换逻辑
+        function toggleFaq(element) {
+            // 关闭其他所有打开的项
+            const allFaqs = document.querySelectorAll('.faq-item');
+            allFaqs.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            // 切换当前项
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+                              </html>
